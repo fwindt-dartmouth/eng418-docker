@@ -1,0 +1,24 @@
+FROM python:3.11.9-bookworm
+
+# update system and install pip requirements
+RUN apt update
+RUN pip install --upgrade pip
+COPY requirements-project.txt /tmp/requirements.txt
+RUN pip install -r /tmp/requirements.txt
+
+# forward the jupyter notebooks port
+EXPOSE 8888
+
+# Environment variable to prevent Jupyter from opening a browser
+ENV JUPYTER_ENABLE_LAB=1
+
+# start jupyter
+CMD ["jupyter", "lab", \
+     "--ip=0.0.0.0", \
+     "--port=8888", \
+     "--no-browser", \
+     "--allow-root", \
+     "--ServerApp.root_dir=/mnt/notebooks", \
+     "--ServerApp.token=", \
+     "--ServerApp.password=", \
+     "--ServerApp.default_url=/lab"]
