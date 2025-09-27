@@ -1,3 +1,4 @@
+ipython<8.0
 jupyterlab
 numpy
 scipy
@@ -16,3 +17,4 @@ benepar
 nltk
 scikit-learn
 sklearn_crfsuite
+networkx
