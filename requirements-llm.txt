@@ -1,5 +1,6 @@
 ipython<8.0
 jupyterlab
+jupyter-collaboration
 numpy
 scipy
 pandas
